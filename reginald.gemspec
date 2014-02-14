@@ -6,11 +6,9 @@ require 'reginald/version'
 Gem::Specification.new do |spec|
   spec.name          = "reginald"
   spec.version       = Reginald::VERSION
-  spec.authors       = ["Braintree"]
-  spec.email         = ["code@getbraintree.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.authors       = ["goggin13"]
+  spec.email         = ["goggin13@gmail.com"]
+  spec.summary       = %q{A chat bot which hooks into both Twilio and XMPP}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -20,4 +18,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
 end
