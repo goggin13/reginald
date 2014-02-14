@@ -1,24 +1,35 @@
 # Reginald
 
-TODO: Write a gem description
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
     gem 'reginald'
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install reginald
-
 ## Usage
 
-TODO: Write usage instructions here
+```
+require 'reginald'
+
+class Dictionary
+  def define(message, word)
+    definition = DictionaryService.lookup(word)
+    message.reply("The definition of #{word} is #{definition}"
+  end
+end
+
+reggie = Reginald.new(
+  :xmpp_user => "XMPP_USER",
+  :xmpp_password => "XMPP_PASSWORD",
+  :twilo_account_id => "YOUR_TWILIO_ACCOUNT_ID",
+  :twilio_auth_token => "YOUR_TWILIO_AUTH_TOKEN" 
+)
+
+reggie.route(/define (\w+)$/, "dictionary#define")
+
+reggie.listen
+
+```
 
 ## Contributing
 
