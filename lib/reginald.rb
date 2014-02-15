@@ -1,5 +1,13 @@
 require "reginald/version"
 
+require "reginald/message"
+
+require "reginald/route"
+
+require "reginald/reginald"
+
 module Reginald
-  # Your code goes here...
+  class Reginald
+    include Route
+  end
 end
