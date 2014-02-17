@@ -4,7 +4,7 @@ module Reginald
   describe Route do
     describe "listen" do
       it "routes messages that match a regular expression" do
-        message = Message.new("hello world")
+        message = Message.new("hello world", "jim")
 
         reggie = Reginald.new
         reggie.listen(/hello world/, "string#include")
@@ -18,11 +18,11 @@ module Reginald
         reggie.listen(/hello world/, "string#include")
 
         String.should_not receive("include")
-        reggie.route(Message.new("goodbye world"))
+        reggie.route(Message.new("goodbye world", "jim"))
       end
 
       it "chooses the correct route from multiple" do
-        message = Message.new("hello world")
+        message = Message.new("hello world", "jim")
 
         reggie = Reginald.new
 
@@ -38,7 +38,7 @@ module Reginald
       end
 
       it "passes on the matches from the regular expression" do
-        message = Message.new("hello world goodbye")
+        message = Message.new("hello world goodbye", "jim")
 
         reggie = Reginald.new
         reggie.listen(/hello (\w+) (\w+)/, "string#include")

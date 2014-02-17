@@ -1,0 +1,6 @@
+account_1:
+  email: TEST_ACCOUNT_EMAIL
+  password: TEST_ACCOUNT_PASSWORD
+account_2:
+  email: TEST_ACCOUNT_EMAIL
+  password: TEST_ACCOUNT_PASSWORD
