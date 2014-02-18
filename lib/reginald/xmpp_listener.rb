@@ -21,7 +21,7 @@ module Reginald
     end
 
     def self.run
-      EM.run { client.run }
+      Thread.new { EM.run { client.run } }
       listen_for_chats
     end
   end

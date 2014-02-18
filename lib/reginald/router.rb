@@ -1,14 +1,12 @@
 module Reginald
-  module Route
-    def initialize
-      @routes = []
-    end
-
+  class Router
     def listen(regex, action)
+      @routes ||= []
       @routes << [regex, action]
     end
 
     def route(message)
+      return unless @routes
       @routes.each do |route|
         regex, action_string = route
         matches = regex.match(message.text)
@@ -21,7 +19,8 @@ module Reginald
     end
 
     def _classify(str)
-      Object.const_get(str.split(/(\W)/).map(&:capitalize).join)
+
+      Object.const_get(str.split("_").map(&:capitalize).join)
     end
   end
 end
