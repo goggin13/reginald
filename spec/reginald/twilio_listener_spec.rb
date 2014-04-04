@@ -71,6 +71,16 @@ module Reginald
       end
     end
 
+    it "sets the from number as an attr_accessor" do
+      twilio_listener = TwilioListener.new(
+        :sid => "test_sid",
+        :token => "test_token",
+        :from => "1234567890",
+        :listener => nil,
+      )
+      twilio_listener.from.should == "1234567890"
+    end
+
     it "calls the message handler when a message is received" do
       test_message_handler = TestMessageHandler.new
       twilio_listener = TwilioListener.new(

@@ -7,7 +7,7 @@ module Reginald
 
     def initialize(params)
       @listener = params[:listener]
-      @twilio_from_number = params[:from]
+      @from = params[:from]
       @port = params[:port] || 3002
       @sid = params[:sid]
       @token = params[:token]
@@ -20,6 +20,7 @@ module Reginald
     def listen_for_chats
       TwilioListenerApp.set :listener, self
       TwilioListenerApp.set :server, "thin"
+      TwilioListenerApp.set :bind, "0.0.0.0"
       TwilioListenerApp.run!(:port => port)
     end
 
