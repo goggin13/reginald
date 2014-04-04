@@ -40,8 +40,9 @@ module Reginald
     end
 
     class TwilioListenerApp < Sinatra::Base
-      post '/twilio_listener' do
+      post "/twilio_listener" do
         settings.listener.process_message(params)
+        "OK"
       end
     end
   end

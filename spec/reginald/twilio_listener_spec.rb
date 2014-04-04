@@ -35,6 +35,7 @@ module Reginald
 
       result = RestClient.post "http://localhost:3001/twilio_listener", twilio_params
       result.code.should == 200
+      result.body.should == "OK"
 
       twilio_listener.stop
 
