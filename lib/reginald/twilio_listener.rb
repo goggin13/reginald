@@ -27,6 +27,8 @@ module Reginald
     def run
       @thread = Thread.new { listen_for_chats }
       sleep 2
+
+      @thread
     end
 
     def stop

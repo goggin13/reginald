@@ -12,9 +12,11 @@ module Reginald
     end
 
     def run
-      @twilio_listener.run
+      t1 = @twilio_listener.run
       XMPPListener.register_listener(self)
-      XMPPListener.run
+      t2 = XMPPListener.run
+
+      [t1, t2]
     end
 
     def process_message(message)
